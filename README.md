@@ -1,37 +1,50 @@
-# SmartAppToHelpSeniorsAPI
+# Smart App to Help Seniors API
 
-An educational API and AI-assistance project built around Azure AI services to help older adults interact with digital services.
+面向适老化应用场景的 Django API 原型。项目通过云端视觉、翻译、语音和语言问答能力，为图像理解、文字/语音交互和问答流程提供后端接口。
 
-## Project focus
+## 功能范围
 
-The project explores accessible interaction patterns and AI-backed services, including speech and language capabilities exposed through a web API.
+- 图像分析。
+- 文本转语音。
+- 语音转文本。
+- 文本问答。
+- 语音问答。
 
-## Architecture
+## 技术栈
 
-- API layer: request validation, authentication boundaries, and response formatting
-- AI integration layer: Azure service clients and prompt/request orchestration
-- application layer: user-facing assistance workflows
-- configuration layer: environment variables for service endpoints and keys
+- Django 4.1
+- 云端计算机视觉服务
+- 云端翻译服务
+- 云端语音服务
+- 云端语言问答服务
 
-## Local development
+## 本地运行
 
-Create an isolated Python environment, install the repository dependencies, and configure Azure service credentials through environment variables. Never commit keys or real user data.
+1. 创建 Python 虚拟环境。
+2. 安装依赖：
 
-~~~bash
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
-pip install -r requirements.txt
-~~~
+    pip install -r requirements.txt
 
-Run the web service using the entry point documented in the source tree, then inspect the API schema before integrating a client.
+3. 在本地环境配置中提供自己的云服务端点和凭据。
+4. 执行数据库迁移并启动开发服务器：
 
-## Accessibility and safety
+    python manage.py migrate
+    python manage.py runserver
 
-Use readable error messages, conservative defaults, and human review for AI-generated responses. Do not treat generated content as medical, legal, or financial advice.
+接口路径由项目根路由、cv/urls.py 和 speech/urls.py 定义。
 
-## License
+## 隐私与生产要求
 
-See the repository license file for redistribution terms.
+图像、语音和问答请求可能包含个人或敏感信息。部署前应至少补充：
+
+- HTTPS、认证、授权和访问日志；
+- 请求大小、文件类型和频率限制；
+- 密钥轮换与安全审计；
+- 对上传内容的用户同意、数据最小化和删除策略；
+- 云服务失败时的错误处理和可用性方案。
+
+本项目是 API 原型，不应被视为生产级适老化服务或医疗建议系统。
+
+## 许可证
+
+请参阅仓库中的 LICENSE 文件。
