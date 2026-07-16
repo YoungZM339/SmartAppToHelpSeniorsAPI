@@ -1,50 +1,50 @@
 # Smart App to Help Seniors API
 
-面向适老化应用场景的 Django API 原型。项目通过云端视觉、翻译、语音和语言问答能力，为图像理解、文字/语音交互和问答流程提供后端接口。
+A Django API prototype for age-friendly application scenarios. It provides backend endpoints for image understanding, text and voice interaction, and Q&A flows through cloud-based vision, translation, speech, and language-question-answering capabilities.
 
-## 功能范围
+## Feature Scope
 
-- 图像分析。
-- 文本转语音。
-- 语音转文本。
-- 文本问答。
-- 语音问答。
+- Image analysis.
+- Text-to-speech.
+- Speech-to-text.
+- Text-based Q&A.
+- Voice-based Q&A.
 
-## 技术栈
+## Technology Stack
 
 - Django 4.1
-- 云端计算机视觉服务
-- 云端翻译服务
-- 云端语音服务
-- 云端语言问答服务
+- Cloud computer-vision service
+- Cloud translation service
+- Cloud speech service
+- Cloud language Q&A service
 
-## 本地运行
+## Local Run
 
-1. 创建 Python 虚拟环境。
-2. 安装依赖：
+1. Create a Python virtual environment.
+2. Install dependencies:
 
     pip install -r requirements.txt
 
-3. 在本地环境配置中提供自己的云服务端点和凭据。
-4. 执行数据库迁移并启动开发服务器：
+3. Provide your own cloud-service endpoints and credentials through local environment configuration.
+4. Apply migrations and start the development server:
 
     python manage.py migrate
     python manage.py runserver
 
-接口路径由项目根路由、cv/urls.py 和 speech/urls.py 定义。
+Endpoint paths are defined by the project root routes, `cv/urls.py`, and `speech/urls.py`.
 
-## 隐私与生产要求
+## Privacy and Production Requirements
 
-图像、语音和问答请求可能包含个人或敏感信息。部署前应至少补充：
+Image, voice, and Q&A requests may contain personal or sensitive information. Before deployment, add at least:
 
-- HTTPS、认证、授权和访问日志；
-- 请求大小、文件类型和频率限制；
-- 密钥轮换与安全审计；
-- 对上传内容的用户同意、数据最小化和删除策略；
-- 云服务失败时的错误处理和可用性方案。
+- HTTPS, authentication, authorization, and access logging;
+- Request-size, file-type, and rate limits;
+- Key rotation and security review;
+- Consent, data minimization, and deletion policies for uploaded content;
+- Error handling and availability plans for cloud-service failures.
 
-本项目是 API 原型，不应被视为生产级适老化服务或医疗建议系统。
+This project is an API prototype, not a production age-friendly service or a medical-advice system.
 
-## 许可证
+## License
 
-请参阅仓库中的 LICENSE 文件。
+See the repository's LICENSE file.
